@@ -7,3 +7,5 @@ Successfully captured a NetNTLMv2 authentication exchange using Responder after 
 
 Added Windows 11 pro to the network and attempted the same set of tests as on Windows 10.
 In this lab, Windows 10 fell back to LLMNR/mDNS for unresolved hostnames and Responder captured authentication. Windows 11, under similar adapter/DNS settings, did not emit observable LLMNR, mDNS, or NBT-NS traffic for the same invalid hostname test.
+
+During testing in an isolated AD lab, Windows 10 generated observable LLMNR and mDNS traffic following DNS failure and was susceptible to Responder-based name resolution poisoning. A Windows 11 Pro 25H2 workstation (Build 26200.8655), configured with similar networking and NetBIOS settings, did not generate observable LLMNR, mDNS, or NBT-NS traffic under the same conditions. Further investigation is required to determine whether this behavior is attributable to OS version changes, security baselines, or resolver implementation differences.
